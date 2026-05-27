@@ -72,6 +72,9 @@ plt.grid(True)
 plt.show()
 ```
 
-# Output 
+# Output :
 <img width="560" height="416" alt="image" src="https://github.com/user-attachments/assets/4cccfeac-4105-490b-9725-4687a3809737" />
+
+# Result :
+Thus the expected output is achived
 
