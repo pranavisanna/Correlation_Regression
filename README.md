@@ -22,59 +22,46 @@ If y represents the dependent variable and x the independent variable, this rela
 # Program :
 
 ```
-NAME: PRANAVI S
-REGISTER NUMBER: 212225040311
-ACADEMIC YEAR: 2026-27
-
-import numpy as np 
-import math 
-import matplotlib.pyplot as plt 
-# Input x and y values (space separated), e.g.: 
-# x:  1 2 3 4 5 
-# y:  2 4 3 5 7 
-x = [int(i) for i in input("Enter x values (space separated): ").split()] 
-y = [int(i) for i in input("Enter y values (space separated): ").split()] 
- 
-if len(x) != len(y): 
-    raise SystemExit("Error: x and y must have the same number of values.") 
-N = len(x) 
-Sx = 0 
-Sy = 0 
-Sxy = 0 
-Sx2 = 0 
-Sy2 = 0 
-for i in range(N): 
-    Sx += x[i] 
-    Sy += y[i] 
-    Sxy += x[i] * y[i] 
-    Sx2 += x[i]**2 
-    Sy2 += y[i]**2 
-den = math.sqrt((N * Sx2 - Sx**2) * (N * Sy2 - Sy**2)) 
-if den == 0: 
-    raise SystemExit("Denominator zero when computing correlation.") 
-r = (N * Sxy - Sx * Sy) / den 
-print("The Correlation coefficient is %0.3f" % r) 
-byx = (N * Sxy - Sx * Sy) / (N * Sx2 - Sx**2) 
-xmean = Sx / N 
-ymean = Sy / N 
-print("The Regression line Y on X is ::: y = %0.3f + %0.3f (x-%0.3f)" % (ymean, byx, 
-xmean)) 
-plt.scatter(x, y)  
-def Reg(xv): 
-    return ymean + byx * (xv - xmean) 
-x_plot = np.linspace(min(x), max(x), 51) 
-y_plot = Reg(x_plot) 
-plt.plot(x_plot, y_plot, 'r') 
-plt.xlabel('x-data') 
-plt.ylabel('y-data') 
-plt.legend(['Regression Line', 'Data points']) 
-plt.grid(True) 
+import math
+import matplotlib.pyplot as plt
+x = [int(i) for i in input().split()]
+y = [int(i) for i in input().split()]
+N = len(x)
+Sx = 0
+Sy = 0
+Sxy = 0
+Sx2 = 0
+Sy2 = 0
+for i in range(0, N):
+    Sx = Sx + x[i]
+    Sy = Sy + y[i]
+    Sxy = Sxy + x[i] * y[i]
+    Sx2 = Sx2 + x[i]**2
+    Sy2 = Sy2 + y[i]**2
+r = (N * Sxy - Sx * Sy) / (math.sqrt(N * Sx2 - Sx**2) * math.sqrt(N * Sy2 - Sy**2))
+print("The Correlation coefficient is %0.3f" % r)
+byx = (N * Sxy - Sx * Sy) / (N * Sx2 - Sx**2)
+xmean = Sx / N
+ymean = Sy / N
+print("The Regression line Y on X is :::y = %0.3f +%0.3f(x-%0.3f)" % (ymean, byx, xmean))
+plt.scatter(x, y)
+def Reg(x):
+    return ymean + byx * (x - xmean)
+x = np.linspace(20, 80, 51)
+y1 = Reg(x)
+plt.plot(x, y1, 'r')
+plt.xlabel('x-data')
+plt.ylabel('y-data')
+plt.legend(['Regression Line', 'Datapoints'])
 plt.show()
 ```
 
+<img width="832" height="597" alt="image" src="https://github.com/user-attachments/assets/0f9c2b5f-08ac-404e-82f7-ba6d9774c206" />
+
+
 # Output :
-<img width="560" height="416" alt="image" src="https://github.com/user-attachments/assets/4cccfeac-4105-490b-9725-4687a3809737" />
+<img width="818" height="652" alt="image" src="https://github.com/user-attachments/assets/71232942-87e2-4772-93c2-3ef9fd5ba7a9" />
 
 # Result :
-Thus the expected output is achived
+Thus, the program to analyse given data using co-efficient of correlation and regression line has been done successfully.
 
